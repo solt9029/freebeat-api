@@ -1,0 +1,1 @@
+class YoutubeVideoNotFoundError < StandardError; end

@@ -7,7 +7,12 @@ module Mutations
     argument :key, String, required: true
 
     def resolve(youtube_video_id:, playlist_id:, key:)
-      video = Video.new(youtube_video_id: youtube_video_id, playlist_id: playlist_id)
+      unless YoutubeService.youtube_video_id_exists?(youtube_video_id)
+        raise YoutubeVideoNotFoundError.new("YouTube動画IDが不正です")
+      end
+
+      playlist = Playlist.find(playlist_id)
+      video = Video.new(youtube_video_id: youtube_video_id, playlist: playlist)
 
       video.authorize_and_save(key)
       { video: video }

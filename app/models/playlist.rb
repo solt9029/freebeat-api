@@ -5,7 +5,7 @@ class Playlist < ApplicationRecord
 
   def authorize(key)
     if key != self.key
-      raise
+      raise AuthorizationError.new("編集キーが不正な値です")
     end
   end
 
