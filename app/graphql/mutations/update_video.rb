@@ -4,10 +4,12 @@ module Mutations
 
     argument :id, Integer, required: true
     argument :bpm, Integer, required: true
+    argument :key, String, required: true
 
-    def resolve(id:, bpm:)
+    def resolve(id:, bpm:, key:)
       video = Video.find(id)
-      video.update!(bpm: bpm)
+      video.assign_attributes(bpm: bpm)
+      video.authorize_and_save(key)
       { video: video }
     end
   end
