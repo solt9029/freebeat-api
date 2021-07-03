@@ -8,7 +8,9 @@ module Mutations
 
     def resolve(id:, bpm:, key:)
       video = Video.find(id)
+
       video.assign_attributes(bpm: bpm)
+      
       video.authorize_and_save(key)
       { video: video }
     end

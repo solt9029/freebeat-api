@@ -8,6 +8,7 @@ module Mutations
 
     def resolve(video_id:, playlist_id:, key:)
       video = Video.new(video_id: video_id, playlist_id: playlist_id)
+
       video.authorize_and_save(key)
       { video: video }
     end
