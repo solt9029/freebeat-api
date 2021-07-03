@@ -1,7 +1,7 @@
 module Types
   class VideoType < Types::BaseObject
     field :id, ID, null: false
-    field :video_id, String, null: false
+    field :youtube_video_id, String, null: false
     field :bpm, Integer, null: true
     field :playlist_id, Integer, null: false
     field :playlist, PlaylistType, null: false

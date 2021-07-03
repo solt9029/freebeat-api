@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 2021_07_03_040919) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string "video_id", null: false
+    t.string "youtube_video_id", null: false
     t.integer "bpm"
     t.bigint "playlist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["playlist_id"], name: "index_videos_on_playlist_id"
-    t.index ["video_id", "playlist_id"], name: "index_videos_on_video_id_and_playlist_id", unique: true
+    t.index ["youtube_video_id", "playlist_id"], name: "index_videos_on_youtube_video_id_and_playlist_id", unique: true
   end
 
   add_foreign_key "videos", "playlists"
