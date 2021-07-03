@@ -1,0 +1,1 @@
+class YoutubePlaylistNotFoundError < StandardError; end
