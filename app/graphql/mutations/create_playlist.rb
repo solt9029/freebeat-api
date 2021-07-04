@@ -1,6 +1,6 @@
 module Mutations
   class CreatePlaylist < BaseMutation
-    field :playlist, Types::PlaylistType, null: false
+    field :playlist, Types::PlaylistTypes::Detail, null: false
 
     def resolve
       playlist = Playlist.create!
