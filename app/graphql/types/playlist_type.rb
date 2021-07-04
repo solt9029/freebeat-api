@@ -4,6 +4,7 @@ module Types
     field :title, String, null: false
     field :default_bpm, Integer, null: false
     field :videos, VideoType.connection_type, null: false
+    field :key, String, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
