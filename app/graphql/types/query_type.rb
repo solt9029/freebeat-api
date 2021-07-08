@@ -16,7 +16,16 @@ module Types
     end
     def playlist(id:)
       playlist = Playlist.preload(:videos).find(id)
+
+      # assign youtube video titles
       details = YoutubeService.fetch_video_details(playlist.videos.map(&:youtube_video_id).uniq)
+      playlist.videos.each do |video|
+        detail = details.find { |detail| detail["id"] == video.youtube_video_id }
+        if detail
+          video.youtube_video_title = detail["snippet"]["title"]
+        end
+      end
+
       playlist
     end
   end
