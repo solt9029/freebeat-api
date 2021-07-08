@@ -4,6 +4,7 @@ class Video < ApplicationRecord
   belongs_to :playlist
 
   validates :youtube_video_id, presence: true, uniqueness: { scope: :playlist }
+  validates_associated :playlist
 
   def authorize_and_save(key)
     self.playlist.authorize(key)

@@ -1,8 +1,11 @@
 class Playlist < ApplicationRecord
   has_many :videos
-  before_create :assign_key
-  validates :default_bpm, presence: true
+  validates_length_of :videos, maximum: 50
 
+  before_create :assign_key
+  
+  validates :default_bpm, presence: true
+  
   def authorize(key)
     if key != self.key
       raise AuthorizationError.new("編集キーが不正な値です")
