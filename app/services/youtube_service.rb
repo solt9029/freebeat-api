@@ -42,6 +42,7 @@ class YoutubeService
     []
   end
 
+  # video_ids array size must be smaller than 50 because of youtube api specification
   def self.fetch_video_details(video_ids)
     params = URI.encode_www_form({ id: video_ids.join(","), key: ENV["YOUTUBE_API_KEY"], part: "id,snippet" })
     uri = URI.parse("#{BASE_URL}/youtube/v3/videos?#{params}")
