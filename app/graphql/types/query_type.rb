@@ -15,8 +15,9 @@ module Types
       argument :id, Int, required: true
     end
     def playlist(id:)
-      Playlist.find(id)
+      playlist = Playlist.preload(:videos).find(id)
+      details = YoutubeService.fetch_video_details(playlist.videos.map(&:youtube_video_id).uniq)
+      playlist
     end
-
   end
 end
