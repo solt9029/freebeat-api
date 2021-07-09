@@ -307,6 +307,7 @@ type Video {
   playlistId: Int!
   updatedAt: ISO8601DateTime!
   youtubeVideoId: String!
+  youtubeVideoTitle: String
 }
 
 """
