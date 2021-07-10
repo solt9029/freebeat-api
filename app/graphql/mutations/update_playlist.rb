@@ -7,7 +7,7 @@ module Mutations
     argument :default_bpm, Integer, required: false
     argument :key, String, required: true
 
-    def resolve(id:, title: nil, default_bpm: nil, key:)
+    def resolve(id:, title: "", default_bpm: nil, key:)
       playlist = Playlist.find(id)
       
       playlist.assign_attributes(title: title, default_bpm: default_bpm)
