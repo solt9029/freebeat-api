@@ -10,8 +10,7 @@ module Mutations
     def resolve(id:, title: nil, default_bpm: nil, key:)
       playlist = Playlist.find(id)
       
-      playlist.title = title if title.present?
-      playlist.default_bpm = default_bpm if default_bpm.present?
+      playlist.assign_attributes(title: title, default_bpm: default_bpm)
 
       playlist.authorize_and_save(key)
       { playlist: playlist }

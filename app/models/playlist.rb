@@ -1,9 +1,9 @@
 class Playlist < ApplicationRecord
-  has_many :videos
+  has_many :videos, -> { order(:created_at) }
   validates_length_of :videos, maximum: 50
 
   before_create :assign_key
-  
+
   validates :default_bpm, presence: true
   
   def authorize(key)
