@@ -12,6 +12,6 @@ services:
     volumes:
       - .:/myapp
     ports:
-      - "3099:3000"
+      - "3092:3000"
     depends_on:
       - db
