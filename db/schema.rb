@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_07_03_040919) do
   create_table "playlists", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.integer "default_bpm", default: 150
+    t.float "max_playback_rate", default: 1.5
+    t.float "min_playback_rate", default: 0.75
     t.string "key", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
