@@ -1,5 +1,6 @@
 module Types
   class MutationType < Types::BaseObject
+    field :delete_video, mutation: Mutations::DeleteVideo
     field :update_playlist_title, mutation: Mutations::UpdatePlaylistTitle
     field :update_playlist_default_bpm, mutation: Mutations::UpdatePlaylistDefaultBpm
     field :create_videos, mutation: Mutations::CreateVideos
