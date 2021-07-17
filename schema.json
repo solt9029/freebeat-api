@@ -1423,7 +1423,7 @@
                   "deprecationReason": null
                 },
                 {
-                  "name": "title",
+                  "name": "keyword",
                   "description": null,
                   "type": {
                     "kind": "SCALAR",
