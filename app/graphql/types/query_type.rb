@@ -7,13 +7,13 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
     field :playlists, Types::PlaylistTypes::Base.connection_type, null: false do
-      argument :keyword, String, required: false
+      argument :title, String, required: false
     end
-    def playlists(keyword: nil)
+    def playlists(title: nil)
       playlist_relation = Playlist.all.joins(:videos).distinct
 
-      if keyword.present?
-        playlist_relation = playlist_relation.where("title like ?", "%#{keyword}%") 
+      if title.present?
+        playlist_relation = playlist_relation.where("title like ?", "%#{title}%") 
       end
 
       playlist_relation

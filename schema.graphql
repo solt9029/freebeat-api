@@ -297,6 +297,7 @@ type Query {
     Returns the last _n_ elements from the list.
     """
     last: Int
+    title: String
   ): BaseConnection!
 }
 
