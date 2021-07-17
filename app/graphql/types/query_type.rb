@@ -8,7 +8,7 @@ module Types
     # They will be entry points for queries on your schema.
     field :playlists, Types::PlaylistTypes::Base.connection_type, null: false
     def playlists
-      Playlist.all
+      Playlist.all.joins(:videos)
     end
 
     field :playlist, Types::PlaylistTypes::Base, null: false do
