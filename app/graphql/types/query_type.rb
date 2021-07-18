@@ -10,7 +10,7 @@ module Types
       argument :keyword, String, required: false
     end
     def playlists(keyword: nil)
-      playlist_relation = Playlist.all.joins(:videos).distinct
+      playlist_relation = Playlist.order(created_at: :desc).all.joins(:videos).distinct
 
       if keyword.present?
         playlist_relation = playlist_relation.where("title like ?", "%#{keyword}%") 
