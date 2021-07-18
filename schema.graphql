@@ -292,6 +292,7 @@ type Query {
     Returns the first _n_ elements from the list.
     """
     first: Int
+    ids: [Int!]
     keyword: String
 
     """

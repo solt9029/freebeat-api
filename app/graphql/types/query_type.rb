@@ -8,12 +8,17 @@ module Types
     # They will be entry points for queries on your schema.
     field :playlists, Types::PlaylistTypes::Base.connection_type, null: false do
       argument :keyword, String, required: false
+      argument :ids, [Int], required: false
     end
-    def playlists(keyword: nil)
+    def playlists(keyword: nil, ids: nil)
       playlist_relation = Playlist.order(created_at: :desc).all.joins(:videos).distinct
 
       if keyword.present?
         playlist_relation = playlist_relation.where("title like ?", "%#{keyword}%") 
+      end
+
+      if ids.present?
+        playlist_relation = playlist_relation.where(id: ids) 
       end
 
       playlist_relation
