@@ -11,7 +11,7 @@ module Types
       argument :ids, [Int], required: false
     end
     def playlists(keyword: nil, ids: nil)
-      playlist_relation = Playlist.order(created_at: :desc).all.joins(:videos).distinct
+      playlist_relation = Playlist.order(created_at: :desc).all
 
       if keyword.present?
         playlist_relation = playlist_relation.where("title like ?", "%#{keyword}%") 
