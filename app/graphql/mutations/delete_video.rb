@@ -2,7 +2,7 @@ module Mutations
   class DeleteVideo < BaseMutation
     field :playlist, Types::PlaylistTypes::Base, null: false
 
-    argument :id, Integer, required: true
+    argument :id, ID, required: true
     argument :key, String, required: true
 
     def resolve(id:, key:)
