@@ -1,6 +1,6 @@
 module Types
   class PlaylistTypes::Base < Types::BaseObject
-    field :id, ID, null: false
+    field :id, Integer, null: false
     field :title, String, null: false
     field :default_bpm, Integer, null: true
     field :max_playback_rate, Float, null: true

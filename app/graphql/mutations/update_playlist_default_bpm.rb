@@ -2,7 +2,7 @@ module Mutations
   class UpdatePlaylistDefaultBpm < BaseMutation
     field :playlist, Types::PlaylistTypes::Base, null: false
 
-    argument :id, ID, required: true
+    argument :id, Integer, required: true
     argument :default_bpm, Integer, required: false
     argument :key, String, required: true
 

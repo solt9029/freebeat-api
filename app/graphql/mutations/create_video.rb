@@ -3,7 +3,7 @@ module Mutations
     field :video, Types::VideoType, null: false
 
     argument :youtube_video_id, String, required: true
-    argument :playlist_id, ID, required: true
+    argument :playlist_id, Integer, required: true
     argument :key, String, required: true
 
     def resolve(youtube_video_id:, playlist_id:, key:)

@@ -2,7 +2,7 @@ module Mutations
   class UpdatePlaylistTitle < BaseMutation
     field :playlist, Types::PlaylistTypes::Base, null: false
 
-    argument :id, ID, required: true
+    argument :id, Integer, required: true
     argument :title, String, required: true
     argument :key, String, required: true
 

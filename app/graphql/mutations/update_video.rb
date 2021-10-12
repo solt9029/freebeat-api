@@ -2,7 +2,7 @@ module Mutations
   class UpdateVideo < BaseMutation
     field :video, Types::VideoType, null: false
 
-    argument :id, ID, required: true
+    argument :id, Integer, required: true
     argument :bpm, Integer, required: false
     argument :key, String, required: true
 

@@ -8,7 +8,7 @@ module Types
     # They will be entry points for queries on your schema.
     field :playlists, Types::PlaylistTypes::Base.connection_type, null: false do
       argument :keyword, String, required: false
-      argument :ids, [ID], required: false
+      argument :ids, [Integer], required: false
     end
     def playlists(keyword: nil, ids: nil)
       playlist_relation = Playlist.order(created_at: :desc).all.joins(:videos).distinct
@@ -25,7 +25,7 @@ module Types
     end
 
     field :playlist, Types::PlaylistTypes::Base, null: false do
-      argument :id, ID, required: true
+      argument :id, Integer, required: true
     end
     def playlist(id:)
       playlist = Playlist.preload(:videos).find(id)

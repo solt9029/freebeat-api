@@ -2,7 +2,7 @@ module Mutations
   class UpdatePlaylistMaxPlaybackRate < BaseMutation
     field :playlist, Types::PlaylistTypes::Base, null: false
 
-    argument :id, ID, required: true
+    argument :id, Integer, required: true
     argument :max_playback_rate, Float, required: false
     argument :key, String, required: true
 
