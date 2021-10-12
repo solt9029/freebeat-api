@@ -1,7 +1,7 @@
 type Base {
   createdAt: ISO8601DateTime!
   defaultBpm: Int
-  id: ID!
+  id: Int!
   maxPlaybackRate: Float
   minPlaybackRate: Float
   title: String!
@@ -94,7 +94,7 @@ input CreateVideoInput {
   """
   clientMutationId: String
   key: String!
-  playlistId: ID!
+  playlistId: Int!
   youtubeVideoId: String!
 }
 
@@ -118,7 +118,7 @@ input CreateVideosInput {
   """
   clientMutationId: String
   key: String!
-  playlistId: ID!
+  playlistId: Int!
   youtubePlaylistId: String!
 }
 
@@ -141,7 +141,7 @@ input DeleteVideoInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  id: Int!
   key: String!
 }
 
@@ -159,7 +159,7 @@ type DeleteVideoPayload {
 type Detail {
   createdAt: ISO8601DateTime!
   defaultBpm: Int
-  id: ID!
+  id: Int!
   key: String!
   maxPlaybackRate: Float
   minPlaybackRate: Float
@@ -289,7 +289,7 @@ input PlaylistInput {
 }
 
 type Query {
-  playlist(id: ID!): Base!
+  playlist(id: Int!): Base!
   playlists(
     """
     Returns the elements in the list that come after the specified cursor.
@@ -305,7 +305,7 @@ type Query {
     Returns the first _n_ elements from the list.
     """
     first: Int
-    ids: [ID!]
+    ids: [Int!]
     keyword: String
 
     """
@@ -324,7 +324,7 @@ input UpdatePlaylistDefaultBpmInput {
   """
   clientMutationId: String
   defaultBpm: Int
-  id: ID!
+  id: Int!
   key: String!
 }
 
@@ -347,7 +347,7 @@ input UpdatePlaylistInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  id: Int!
   key: String!
   playlistInput: PlaylistInput!
 }
@@ -360,7 +360,7 @@ input UpdatePlaylistMaxPlaybackRateInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  id: Int!
   key: String!
   maxPlaybackRate: Float
 }
@@ -384,7 +384,7 @@ input UpdatePlaylistMinPlaybackRateInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  id: Int!
   key: String!
   minPlaybackRate: Float
 }
@@ -419,7 +419,7 @@ input UpdatePlaylistTitleInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  id: Int!
   key: String!
   title: String!
 }
@@ -445,7 +445,7 @@ input UpdateVideoInput {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  id: ID!
+  id: Int!
   key: String!
 }
 
@@ -463,7 +463,7 @@ type UpdateVideoPayload {
 type Video {
   bpm: Int
   createdAt: ISO8601DateTime!
-  id: ID!
+  id: Int!
   playlist: Base!
   playlistId: Int!
   updatedAt: ISO8601DateTime!
